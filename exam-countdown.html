@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exam Countdown</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--Fontawesome CDN:-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Include countdown timer js plugin -->
+    <script src="./assets/js/countdown_timer.js"></script>
+
+    <style>
+        body {
+            background-color: #337ab7;
+        }
+
+        h2 {
+            color: #FFFFFF;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <br /><br /><br />
+    <div class="container">
+        <h2 class="text-center">PTE Examination Practice Test 1
+            <span style="color: white" class="clock-element pull-right small">Time remaining:</span>
+        </h2>
+
+        <div class="well">
+             <p>
+            For the ultimate preparation, we recommend the PTE Academic online scored practice test.
+            A three-hour, computer-based mock test, the online scored practice test delivers a score report at the end,
+            so you can see which areas to improve.
+        </p>
+        <p>
+            We offer a range of preparation materials for PTE Academic.
+            Find coursebooks, preparation courses and online study to help prepare for PTE Academic.
+            <a name="visit-timer" href="./js-countdown-timer.html"><span>Visit Jun's JS Countdown Timer</span></a>
+        </p>
+        </div>
+
+    </div>
+</div>
+
+
+    <script>
+        $(document).ready(function(){
+
+            console.log("I am ready");
+
+            var clockElement = '.clock-element';
+            console.log("Clock element contains ", clockElement);
+
+            var countDownMinutes = 0.2;
+            var linkURL = $('a[name="visit-timer"]').attr('href');
+            console.log("LINK URL is ", linkURL);
+
+            launchCountdown(countDownMinutes, clockElement, linkURL );
+            console.log('launched count down timer');
+
+        }); // end document ready;
+    </script>
+</body>
+</html>
