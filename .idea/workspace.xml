@@ -27,15 +27,15 @@
       <file leaf-file-name="js-countdown-timer.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js-countdown-timer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8157576">
-              <caret line="203" column="43" selection-start-line="203" selection-start-column="43" selection-end-line="203" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.53939396">
+              <caret line="238" column="94" selection-start-line="238" selection-start-column="94" selection-end-line="238" selection-end-column="94" />
               <folding>
                 <element signature="e#2404#3595#0" expanded="true" />
                 <element signature="e#3665#5130#0" expanded="true" />
                 <element signature="e#3770#4938#0" expanded="true" />
                 <element signature="e#5188#5550#0" expanded="true" />
-                <element signature="e#5908#6419#0" expanded="true" />
-                <element signature="e#6555#6788#0" expanded="true" />
+                <element signature="e#6040#6551#0" expanded="true" />
+                <element signature="e#6961#7194#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -362,15 +362,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js-countdown-timer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8157576">
-          <caret line="203" column="43" selection-start-line="203" selection-start-column="43" selection-end-line="203" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.53939396">
+          <caret line="238" column="94" selection-start-line="238" selection-start-column="94" selection-end-line="238" selection-end-column="94" />
           <folding>
             <element signature="e#2404#3595#0" expanded="true" />
             <element signature="e#3665#5130#0" expanded="true" />
             <element signature="e#3770#4938#0" expanded="true" />
             <element signature="e#5188#5550#0" expanded="true" />
-            <element signature="e#5908#6419#0" expanded="true" />
-            <element signature="e#6555#6788#0" expanded="true" />
+            <element signature="e#6040#6551#0" expanded="true" />
+            <element signature="e#6961#7194#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -165,7 +165,12 @@
 
         }; // end initClock;
 
-        var schedule = [
+
+
+
+/* code to schedule timer automatically;
+==================================================================================*/
+           var schedule = [
             ['2016-02-06 15:15:59', '2016-02-06 15:23:59'],
             ['2016-02-06 15:25:59', '2016-02-06 15:27:59'],
             ['2016-02-06 15:35:59', '2016-02-16 19:45:59']
@@ -192,6 +197,12 @@
 
 //        checkTimeToLaunchClock();
 
+/* end code to schedule timer automatically;
+==================================================================================*/
+
+
+/* code to countdown timer 10 minutes on user's arrival;
+==================================================================================*/
         function tenMinutesCountDownOnUserArrival(){
             var tenMinutes = 10 * 60 * 1000; // change minutes to milliseconds;
             var currentTime = Date.parse(new Date());
@@ -201,7 +212,40 @@
 
         }; // end tenMinutesCountDownOnUserArrival;
 
-        tenMinutesCountDownOnUserArrival();
+//        tenMinutesCountDownOnUserArrival();
+
+/* end code to countdown timer 10 minutes on user's arrival;
+==================================================================================*/
+
+
+/* code to maintain persistent time across page;
+==================================================================================*/
+        // if there's a cookie with the name myClock, use that value as the deadline
+        if(document.cookie && document.cookie.match('myClock')){
+            // get deadline value from cookie
+            var deadline = document.cookie.match(/(^|;)myClock=([^;]+)/)[2];
+        }
+
+// otherwise, set a deadline 10 minutes from now and
+// save it in a cookie with that name
+        else{
+            // create deadline 10 minutes from now
+            var timeInMinutes = 15;
+            var currentTime = Date.parse(new Date());
+            var deadline = new Date(currentTime + timeInMinutes*60*1000);
+
+            // store deadline in cookie for future reference
+//            document.cookie = 'myClock=' + deadline + '; path=/; domain=.yourdomain.com';
+            document.cookie = 'myClock=' + deadline + '; path=/; domain=http://localhost:63342';
+        };
+
+        initClock(deadline);
+
+
+/* end code to maintain persistent time across page;
+==================================================================================*/
+
+
 
     }); // end document ready;
 </script>
