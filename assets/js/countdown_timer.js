@@ -47,7 +47,6 @@ function setUpClock(endTime, clockElement, linkURL, funcallBack){
         //$('span.hours').text(hours);
         //$('span.minutes').text(minutes);
         //$('span.seconds').text(seconds);
-
         //hours  = hours <= 1 ? hours + " Hour" : hours + " Hours";
         //minutes = minutes <= 1 ? minutes + " Minute" : minutes + " Minutes";
         //seconds  = seconds <= 1 ? seconds + " Second" : seconds + " Seconds";

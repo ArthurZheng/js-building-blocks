@@ -57,25 +57,49 @@
 
             console.log("I am ready");
 
-            var clockElement = '.clock-element';
-            console.log("Clock element contains ", clockElement);
-
-            var countDownMinutes = 0.2;
-            var linkURL = $('a[name="visit-timer"]').attr('href');
-            console.log("LINK URL is ", linkURL);
-
-            launchCountdown(countDownMinutes, clockElement, linkURL );
-            console.log('launched count down timer');
-
-            function copyList(l) {
-              return l.slice();
+            function copyList(targetList) {
+                console.log("slice now");
+                console.log(targetList.slice(0), " + ");
+                return targetList.slice(0);
             }
+
             var list1 = [1, 3, 5, 7, 9];
 
             var list2 = copyList(list1);
 
             console.log("list2 is ", list2);
 
+            list1[0] *= 22;
+
+            console.log('list2 again is ', list2);
+            console.log('list1 again is ', list1);
+
+            var list3 = [].concat( "Jun" );
+            console.log("list3 is ", list3);
+            console.log("typeOf list3 is ", typeof (list3));
+
+
+            if( Object.prototype.toString.call( list3 ) === '[object Array]' ) {
+                alert( list3.toString() + ' is Array!' );
+            }
+
+            console.log(Object.prototype.toString.call( list3) === "[object Array]");
+            console.log("Array is array Array.isArray()");
+            console.log(Array.isArray(list3));
+
+            function copyArray(list){
+                if (Array.isArray(list)){
+                    return list.slice(0);
+                } else {
+                    return false;
+                }
+            }
+
+            list4 = [99,88,77, 66];
+            list5 = copyArray(list4);
+            alert(typeof(list5));
+            console.log("list5 is");
+            console.log(list5);
 
         }); // end document ready;
     </script>

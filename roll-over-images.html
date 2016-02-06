@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exam Countdown</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--Fontawesome CDN:-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Include countdown timer js plugin -->
+    <script src="./assets/js/countdown_timer.js"></script>
+
+    <style>
+        body {
+            background-color: #337ab7;
+        }
+
+        h2 {
+            color: #FFFFFF;
+        }
+        .image {
+            padding: 10px;
+        }
+        img {
+            border: 2px solid red;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <br /><br /><br />
+    <div class="container">
+        <h2 class="text-center">jQuery Roll Over Images</h2>
+        <div class="row image-row">
+            <div class="col-xs-3 image">
+                <a href=""><img class="img-rounded img-responsive" src="./assets/img/woman0.jpg" /></a>
+            </div>
+            <div class="col-xs-3 image">
+                <a href=""><img class="img-circle img-responsive" src="./assets/img/woman1.jpg" /></a>
+            </div>
+            <div class="col-xs-3 image">
+                <a href=""><img class="img-thumbnail img-responsive" src="./assets/img/woman2.jpg" /></a>
+            </div>
+            <div class="col-xs-3 image">
+                <a href=""><img class="img-rounded img-responsive" src="./assets/img/woman3.jpg" /></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <script>
+        $(document).ready(function(){
+
+            console.log("I am ready");
+            $(".image-row img").each(function(){
+                var oldSource = $(this).attr('src');
+                var newSource = "./assets/img/woman" + (Math.floor(Math.random() * 10) + 3 ) + ".jpg";
+
+                $(this).hover(
+                   function(){
+                    $(this).attr('src', newSource);
+                       console.log('new source is ', newSource)
+                   },
+                    function(){
+                    $(this).attr('src', oldSource);
+                        console.log('old source is ', oldSource);
+                    }
+                ); // end hover
+            }); // end each;
+
+
+        }); // end document ready;
+    </script>
+</body>
+</html>
