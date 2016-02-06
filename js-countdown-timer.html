@@ -19,6 +19,7 @@
             font-weight: 100;
             text-align: center;
             font-size: 30px;
+            display: none;
         }
 
         div.clock {
@@ -34,7 +35,7 @@
             background: #00816A;
             display: inline-block;
         }
-        
+
         div.small {
             padding-top: 5px;
             font-size: 16px;
@@ -94,10 +95,8 @@
             console.log("calculate remaining time called");
 
             var totalTime = 0;
-            totalTime = Date.parse(endTimeMilliSeconds) -Date.now();
-            // or do the following;
-//            var t = Date.parse(endtime) - Date.parse(new Date());
-            
+            totalTime =  endTimeMilliSeconds - Date.parse(new Date());
+
             // get the difference between deadline time and now;
             // get the difference time from Now and Deadlien;
 
@@ -122,9 +121,9 @@
         }; // end calculateRemainingTime;
 
         function setUpClock(endTime){
-            console.log("set up clock called;");
-            var startClock = setInterval(function(){
 
+            $('.countdown-clock').show(); // show the hidden clock;
+            function updateClock(){
                 // get the time;
                 var clockTime = calculateRemainingTime(endTime);
                 // get the clock reference;
@@ -138,28 +137,59 @@
                 $('span.minutes').text(minutes);
                 $('span.seconds').text(seconds);
 
-                if(clockTime <=0 ){
-                    clearInterval(clockTime); // if the time remaining <= 0, we stop the clock;
+                if(clockTime.totalTime <=0 ){
+                    clearInterval(currentClock); // if the time remaining <= 0, we stop the clock;
+                    alert("Time Up! Now, we hide the clock");
+                    $('.countdown-clock').hide(); // hide the clock;
                     console.log("clocktime clearInterval to stop clock");
                 }; // end if;
 
                 console.log("inside set interval clocktime");
-            }, 1000); // end setInterval;
+            }; // end updateClock;
+
+            console.log("set up clock called;");
+            updateClock();
+
+            var currentClock = setInterval(updateClock, 1000); // end setInterval;
         }; // end setUpClock;
 
-        function initClock(){
-             // end time format can be any of the following:
+        function initClock(deadline){
+            // end time format can be any of the following:
             //var deadline = '2015-12-31';
             //var deadline = '31/12/2015';
             //var deadline = 'December 31 2015';
             //var deadline = 'December 31 2015 23:59:59 GMT+02:00';
+            //var deadLine = "2016-02-06 15:05:59";
 
-            var deadLine = "2016-02-06 14:42:59";
-            setUpClock(deadLine);
+            setUpClock(deadline);
 
         }; // end initClock;
 
-        initClock();
+        var schedule = [
+            ['2016-02-06 15:15:59', '2016-02-06 15:23:59'],
+            ['2016-02-06 15:25:59', '2016-02-06 15:27:59'],
+            ['2016-02-06 15:35:59', '2016-02-16 19:45:59']
+        ];
+
+        // check if current time is between the schedule, if so init the clock;
+        function checkTimeToLaunchClock(){
+            var currentTime = Date.parse(new Date());
+            var i = 0;
+            var scheduleLength = schedule.length;
+
+            for(i; i < scheduleLength; i++){
+                var startTime = Date.parse(schedule[i][0]);
+                var endTime = Date.parse(schedule[i][1]);
+
+                if (currentTime >= startTime && currentTime <= endTime) {
+                    console.log('End time is', endTime);
+                    initClock(endTime);
+                }
+            }
+        }; // end function check time to launch clock;
+
+
+        checkTimeToLaunchClock();
 
     }); // end document ready;
 </script>
