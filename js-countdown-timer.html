@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JS Countdown Timer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!--Fontawesome CDN:-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <style>
+        div.countdown-clock {
+            font-family: sans-serif;
+            color: #fff;
+            display: inline-block;
+            font-weight: 100;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        div.clock {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 3px;
+            background: #00BF96;
+        }
+
+        div.clock span {
+            padding: 15px;
+            border-radius: 3px;
+            background: #00816A;
+            display: inline-block;
+        }
+        
+        div.small {
+            padding-top: 5px;
+            font-size: 16px;
+        }
+
+        body {
+            background-color:  #337ab7;;
+        }
+
+        h1 {
+            color: #FFFFFF;
+        }
+
+    </style>
+</head>
+<body>
+<br /><br /><br /><br />
+
+<div class="container-fluid">
+    <h1 class="text-center">JavaScript Countdown Timer</h1>
+    <br /><br />
+
+    <div class="container text-center">
+        <div class="countdown-clock">
+            <div class="clock">
+                <span class="days"></span>
+                <div class="small">Days</div>
+            </div>
+
+            <div class="clock">
+                <span class="hours"></span>
+                <div class="small">Hours</div>
+            </div>
+
+            <div class="clock">
+                <span class="minutes"></span>
+                <div class="small">Minutes</div>
+            </div>
+
+            <div class="clock">
+                <span class="seconds"></span>
+                <div class="small">Seconds</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<script>
+    $(document).ready(function(){
+        console.log("I am ready");
+
+        function calculateRemainingTime(endTimeMilliSeconds){
+            console.log("calculate remaining time called");
+
+            var totalTime = 0;
+            totalTime = Date.parse(endTimeMilliSeconds) -Date.now();
+            // or do the following;
+//            var t = Date.parse(endtime) - Date.parse(new Date());
+            
+            // get the difference between deadline time and now;
+            // get the difference time from Now and Deadlien;
+
+            console.log("Total time ", totalTime);
+
+            // get the exact seconds, minutes, hours, and days till deadline;
+            var seconds = Math.floor((totalTime / 1000) % 60); // get the smallest whole seconds;
+            var minutes = Math.floor(((totalTime / 1000) / 60) % 60); // get the whole minutes;
+            var hours = Math.floor( (totalTime / (1000 * 60 * 60)) % 24 ); // get the whole hours;
+            var days = Math.floor(totalTime / (1000 * 60 * 60 * 24)); // get the whole days;
+            console.log('seoncds ', seconds);
+            console.log('minutes ', minutes);
+            console.log('hours ', hours);
+            console.log('days ', days);
+            return {
+                totalTime: totalTime,
+                days: days,
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds
+            }
+        }; // end calculateRemainingTime;
+
+        function setUpClock(endTime){
+            console.log("set up clock called;");
+            var startClock = setInterval(function(){
+
+                // get the time;
+                var clockTime = calculateRemainingTime(endTime);
+                // get the clock reference;
+                var days = clockTime.days < 10 ? "0" + clockTime.days : clockTime.days;
+                var hours = clockTime.hours < 10 ? "0" + clockTime.hours : clockTime.hours;
+                var minutes = clockTime.minutes < 10 ? "0" + clockTime.minutes : clockTime.minutes;
+                var seconds = clockTime.seconds < 10 ? "0" + clockTime.seconds : clockTime.seconds;
+
+                $('span.days').text(days);
+                $('span.hours').text(hours);
+                $('span.minutes').text(minutes);
+                $('span.seconds').text(seconds);
+
+                if(clockTime <=0 ){
+                    clearInterval(clockTime); // if the time remaining <= 0, we stop the clock;
+                    console.log("clocktime clearInterval to stop clock");
+                }; // end if;
+
+                console.log("inside set interval clocktime");
+            }, 1000); // end setInterval;
+        }; // end setUpClock;
+
+        function initClock(){
+             // end time format can be any of the following:
+            //var deadline = '2015-12-31';
+            //var deadline = '31/12/2015';
+            //var deadline = 'December 31 2015';
+            //var deadline = 'December 31 2015 23:59:59 GMT+02:00';
+
+            var deadLine = "2016-02-06 14:42:59";
+            setUpClock(deadLine);
+
+        }; // end initClock;
+
+        initClock();
+
+    }); // end document ready;
+</script>
+</body>
+</html>
