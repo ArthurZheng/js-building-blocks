@@ -173,13 +173,14 @@
 
         // check if current time is between the schedule, if so init the clock;
         function checkTimeToLaunchClock(){
-            var currentTime = Date.parse(new Date());
             var i = 0;
             var scheduleLength = schedule.length;
 
             for(i; i < scheduleLength; i++){
                 var startTime = Date.parse(schedule[i][0]);
                 var endTime = Date.parse(schedule[i][1]);
+
+                var currentTime = Date.parse(new Date());
 
                 if (currentTime >= startTime && currentTime <= endTime) {
                     console.log('End time is', endTime);
@@ -189,7 +190,18 @@
         }; // end function check time to launch clock;
 
 
-        checkTimeToLaunchClock();
+//        checkTimeToLaunchClock();
+
+        function tenMinutesCountDownOnUserArrival(){
+            var tenMinutes = 10 * 60 * 1000; // change minutes to milliseconds;
+            var currentTime = Date.parse(new Date());
+
+            var deadLine = currentTime + tenMinutes;
+            initClock(deadLine);
+
+        }; // end tenMinutesCountDownOnUserArrival;
+
+        tenMinutesCountDownOnUserArrival();
 
     }); // end document ready;
 </script>
