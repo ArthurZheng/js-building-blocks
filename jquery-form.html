@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>jQuery Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container" style="padding-top:30px">
+
+</div>
+<div class="container bg-primary">
+  <h2>Inline form with .sr-only class</h2>
+  <p>Make the viewport larger than 768px wide to see that all of the form elements are inline, left aligned, and the labels are alongside.</p>
+  <form class="form-inline" role="form">
+    <div class="form-group">
+      <label class="sr-only" for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+  <br /><br />
+</div>
+
+<script>
+  function verifyPasswordLength(pwdSelector){
+    var pwd = $(pwdSelector).val();
+    if (pwd.length < 5){
+      console.log("Password length must be more than 5 characters");
+    } else if (pwd.length > 10){
+      console.log("Password length must be less than 10 characters");
+    } else {
+      console.log("Password length is fine");
+    }
+  } // end verifyPasswordLength;
+
+  $('button[type="submit"]').on('click', function (e) {
+    e.preventDefault();
+
+    var password = $(this).parent().find('input[type=password]').val();
+
+    console.log("password is ", password );
+
+  }); // end on click;
+
+  $('#pwd').on('blur', function(){
+    $(this).css('border', '2px solid green');
+//    var pwd = $(this).val();
+    verifyPasswordLength('#pwd');
+  }); // end pwd blur;
+
+  $('#pwd').focus(function(){
+    $(this).css('border', '2px solid red');
+  }); // end focus
+
+</script>
+
+</body>
+</html>
