@@ -41,9 +41,10 @@
 <script>
     $(document).ready(function(){
         var h2text = $('h2').text();
-        alert(h2text);
 
-       $('h2').reverseString();
+       $('h2').reverseString({
+           complete: function(){ alert('reservese string fucntion called.'); }
+       });
 
 
     }); // end document ready;

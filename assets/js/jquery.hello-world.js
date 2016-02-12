@@ -38,8 +38,8 @@
                 $(this).css('font-style', settings.fontStyle);
             }
 
-            if (isFunction(settings.complete)){
-                settings.complete.call( this ); // if the passed in argument for completet is a function, we call it;
+            if ($.isFunction(settings.complete)){
+                settings.complete.call( this ); // if the passed in argument for complete is a function, we call it;
             }
 
         });

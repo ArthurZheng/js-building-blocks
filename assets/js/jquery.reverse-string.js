@@ -10,10 +10,11 @@
 
         var settings = $.extend({
             minLength: 0,
-            maxLength: 99
+            maxLength: 99,
+            complete: null
         }, options);
 
-        return this.each(function(){
+        this.each(function(){
 
             var $this = $(this);
             var originalText = $this.text();
@@ -27,7 +28,13 @@
                 $this.text(newText);
             }
 
+            if($.isFunction(settings.complete)) {
+                settings.complete.call(this); // if the passed in argument for complete is a function, we call it;
+            }
+
         });
+
+        return this; // allow jQuery chaining;
     };
 
 })(jQuery);
