@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Get Time</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!--Fontawesome CDN:-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="./assets/js/jquery.hello-world2.js"></script>
+    <style>
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>jQuery Gettime</h1>
+
+    <div class="text">
+
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function(){
+
+        var now = new Date();
+
+        var month = now.getMonth();
+        var date = now.getDate();
+        var day = now.getDay();
+
+        var hours  = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        var year = now.getFullYear();
+        var time = now.getTime();
+
+//        console.log('Year', year, 'month', month, ' hours', hours, 'minutes ', minutes, ' seconds ', seconds, 'time ',
+//                time);
+//        console.log("Date ", date, 'Day ', day);
+
+        function getMonthIndex(time){
+            return time.getMonth();
+        } // end getMonthIndex;
+
+        function getDayIndex(time){
+            return time.getDay();
+        }
+
+        var months = [
+                'January', 'February', 'Month', 'April', 'May', 'June', 'July', 'August', 'September', 'October',
+            'November', 'December'
+        ];
+
+        function showMonth(){
+            var millisecondsNow = new Date();
+
+            var thisMonth = months[getMonthIndex(millisecondsNow)];
+            console.log("This Month is ", thisMonth, ' by showMonth');
+
+        } // end function showMonth;
+
+
+        var days = [
+            'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+        ];
+
+        function showDay(){
+            var millisecondsNow = new Date();
+
+            var thisDay = days[getDayIndex(millisecondsNow)];
+
+            console.log("The day is ", thisDay);
+
+        }
+
+        function changeTo12HourScheme(time)
+        {
+            var hours = time.getHours();
+
+            var am_pm;
+
+            if (hours > 12){
+                am_pm = "PM";
+            } else {
+                am_pm = "AM"
+            }
+
+            if (hours % 12 == 0){
+                hours = 12
+            } else (
+               hours = hours % 12
+            );
+
+            return hours + am_pm;
+        }
+
+
+        showMonth();
+        showDay();
+
+        var timeOffset = now.getTimezoneOffset();
+        console.log("Time off set from UTC is ", timeOffset);
+
+        var time12Scheme = changeTo12HourScheme(now);
+        console.log("12 hour scheme time ", time12Scheme);
+
+    }); // end document ready;
+</script>
+</body>
+</html>

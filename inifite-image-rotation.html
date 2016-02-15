@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!--Fontawesome CDN:-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="./assets/js/jquery.hello-world2.js"></script>
+    <style>
+        .image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /*width: 420px;*/
+            /*height: 420px;*/
+            /*margin:-60px 0 0 -60px;*/
+            -webkit-animation:spin 4s linear infinite;
+            -moz-animation:spin 4s linear infinite;
+            animation:spin 100s linear infinite;
+        }
+        @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+        @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+        @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="image">
+        <div class="wrapper" style="background-color: #3f3f3f; border-radius:50%; padding: 35px;">
+            <img style="border-radius: 50%" class="img img-responsive" src="./assets/img/panda.jpeg">
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+    $(document).ready(function(){
+
+    }); // end document ready;
+</script>
+</body>
+</html>

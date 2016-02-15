@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Random Numbers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!--Fontawesome CDN:-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="./assets/js/jquery.hello-world2.js"></script>
+    <style>
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Hello World 2 jQuery Plugin</h1>
+
+    <div class="text">
+
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function(){
+
+        function getRandomNumber(to, from){
+            return Math.floor(Math.random()* (to -from + 1) + from );
+            // if we put to 10 from 1, return any random number between 1 and 10. Note that we use Math.floor() to round down;
+        }// end function getRandomNumber;
+
+
+        function getRandNum(from, to){
+            return Math.ceil(Math.random()*(to-from +1) + from);
+            // example (from 1 to 10) return any number between 2 and 11, because we used Math.ceil to round up;
+        }
+        for(var i = 0; i < 10; i++){
+//            console.log("random number by getRandomNumber", getRandomNumber(10, 1));
+            console.log("random number by getRandNum", getRandNum(1, 10));
+
+        }
+
+    }); // end document ready;
+</script>
+</body>
+</html>
